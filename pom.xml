@@ -65,6 +65,9 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.1</version>
+                <configuration>
+                    <executable>method-overwriter.bat</executable>
+                </configuration>
                 <executions>
                     <execution>
                         <id>pre-copy</id>
@@ -73,7 +76,6 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>put-post-replacer.bat</executable>
                             <arguments>
                                 <argument>pre</argument>
                             </arguments>
@@ -86,7 +88,6 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>put-post-replacer.bat</executable>
                             <arguments>
                                 <argument>post</argument>
                             </arguments>

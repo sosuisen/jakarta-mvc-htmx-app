@@ -23,7 +23,7 @@
     <body>
         <h1>Todo List</h1>
 
-        <form hx-post="/app/todos/api" hx-target="#todo-list" hx-swap="beforeend">
+        <form hx-post="/app/api/todos" hx-target="#todo-list" hx-swap="beforeend">
             <input type="text" name="title" placeholder="New todo" required>
             <button type="submit">Add</button>
         </form>
@@ -35,8 +35,8 @@
         <script>
             htmx.on("htmx:afterRequest", function (evt) {
                 if (evt.detail.successful) {
-                    if (evt.detail.requestConfig.method === "POST") {
-                        evt.detail.target.querySelector("input").value = "";
+                    if (evt.detail.requestConfig.verb === "post") {
+                        document.querySelector("form input[name='title']").value = "";
                     }
                 }
             });
